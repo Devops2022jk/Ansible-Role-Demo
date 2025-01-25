@@ -1,5 +1,5 @@
 - name: Deploy Two-Tier Application
-  hosts: tests
+  hosts: test
   become: yes
   roles:
     - phpapp
