@@ -1,13 +1,10 @@
-- name: Build frontend Docker image
-  community.docker.docker_image:
-    path: /home/ubuntu/two-tier-app/Ansible-Role-Demo/roles/nodejsapp/files
-    name: nodeapp-backend-img
-    tag: latest
-
-- name: Run frontend container
-  community.docker.docker_container:
-    name: nodeapp-backtend
-    image: nodeapp-backend-img:latest
-    state: started
-    ports:
-      - "4000:8080"
+    - name: Pull Docker image and run container
+      community.docker.docker_container:
+        name: my-frontend-app
+        image: nodejsapp-backend-img:latest
+        state: started
+        ports:
+          - "4000:8080"
+        env:
+          APP_ENV: production
+        restart_policy: always
