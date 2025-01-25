@@ -1,6 +1,6 @@
     - name: Pull Docker image and run container
       community.docker.docker_container:
-        name: my-frontend-app
+        name: my-backend-app
         image: nodejsapp-backend-img:latest
         state: started
         ports:
