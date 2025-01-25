@@ -1,7 +1,7 @@
     - name: Pull Docker image and run container
       community.docker.docker_container:
         name: my-backend-app
-        image: nodejsapp-backend-img:latest
+        image: devopsjk2023/nodejsapp-backend-img:latest
         state: started
         ports:
           - "4000:8080"
