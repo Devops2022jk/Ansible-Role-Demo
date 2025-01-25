@@ -1,6 +1,6 @@
 - name: Build frontend Docker image
   community.docker.docker_image:
-    path: /home/ubuntu/two-tier-app/roles/nodejsapp/files
+    path: /home/ubuntu/two-tier-app/Ansible-Role-Demo/roles/nodejsapp/files
     name: nodeapp-backend-img
     tag: latest
 
