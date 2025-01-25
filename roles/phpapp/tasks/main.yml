@@ -1,5 +1,5 @@
-    - name: Git-checkout
-      git: repo="https://github.com/Devops2022jk/Ansible-Role-Demo.git" dest="/home/ubuntu/two-tier-app/"
+#    - name: Git-checkout
+#      git: repo="https://github.com/Devops2022jk/Ansible-Role-Demo.git" dest="/home/ubuntu/two-tier-app/"
 
     - name: Ensure Docker is installed
       apt:
