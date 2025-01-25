@@ -6,12 +6,7 @@
         name: docker.io
         state: latest
         update_cache: yes
-
-    - name: Install Docker Python SDK
-      pip:
-        name: docker
-        state: latest
-
+        
     - name: Pull Docker image and run container
       community.docker.docker_container:
         name: my-frontend-app
