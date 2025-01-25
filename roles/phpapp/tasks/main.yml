@@ -1,16 +1,24 @@
-- name: Git-checkout
-  git: repo="https://github.com/Devops2022jk/Ansible-Role-Demo.git" dest="/home/ubuntu/two-tier-app/"
+    - name: Git-checkout
+      git: repo="https://github.com/Devops2022jk/Ansible-Role-Demo.git" dest="/home/ubuntu/two-tier-app/"
 
-- name: Build frontend Docker image
-  community.docker.docker_image:
-    path: /home/ubuntu/two-tier-app/Ansible-Role-Demo/roles/phpapp/files
-    name: phpapp-frontend-img
-    tag: latest
+    - name: Ensure Docker is installed
+      apt:
+        name: docker.io
+        state: latest
+        update_cache: yes
 
-- name: Run frontend container
-  community.docker.docker_container:
-    name: phpapp-frontend
-    image: phpapp-frontend-img:latest
-    state: started
-    ports:
-      - "3000:80"
+    - name: Install Docker Python SDK
+      pip:
+        name: docker
+        state: latest
+
+    - name: Pull Docker image and run container
+      community.docker.docker_container:
+        name: my-frontend-app
+        image: devopsjk2023/phpapp-frontend-img:latest
+        state: started
+        ports:
+          - "3000:80"
+        env:
+          APP_ENV: production
+        restart_policy: always
