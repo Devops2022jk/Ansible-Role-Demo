@@ -1,0 +1,13 @@
+- name: Build frontend Docker image
+  community.docker.docker_image:
+    path: /home/ubuntu/two-tier-app/roles/phpapp/files
+    name: phpapp-frontend-img
+    tag: latest
+
+- name: Run frontend container
+  community.docker.docker_container:
+    name: phpapp-frontend
+    image: phpapp-frontend-img:latest
+    state: started
+    ports:
+      - "3000:80"

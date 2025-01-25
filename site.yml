@@ -1,0 +1,7 @@
+- name: Deploy Two-Tier Application
+  hosts: tests
+  become: yes
+  roles:
+    - phpapp
+    - nodejsapp
+
